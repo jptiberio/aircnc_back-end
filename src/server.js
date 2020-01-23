@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require('cors');
 const routes = require("./routes");
 
 const app = express();
@@ -16,6 +17,7 @@ mongoose.connect(
 // Req.params = Acessar route params (para edição, delete)
 // Req.body = Acessar corpo da request (criação, edição)
 
+app.use(cors());
 app.use(express.json());
 app.use(routes);
 
